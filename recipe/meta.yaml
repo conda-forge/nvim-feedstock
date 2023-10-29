@@ -17,6 +17,9 @@ requirements:
   build:
     - {{ compiler('c') }}
     - cmake
+    - libmpack-lua
+    - lua-lpeg
+    - luajit-openresty
     - make
     - pkg-config
   host:
