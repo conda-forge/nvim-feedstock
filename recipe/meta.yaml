@@ -21,6 +21,7 @@ requirements:
     - lua-lpeg
     - luajit-openresty
     - make
+    - nvim  # [build_platform != target_platform]
     - pkg-config
   host:
     - gettext
