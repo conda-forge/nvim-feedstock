@@ -1,5 +1,5 @@
 {% set name = "nvim" %}
-{% set version = "0.9.5" %}
+{% set version = "0.10.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/neovim/neovim/archive/v{{ version }}.tar.gz
-  sha256: fe74369fc30a32ec7a086b1013acd0eacd674e7570eb1acc520a66180c9e9719
+  sha256: 372ea2584b0ea2a5a765844d95206bda9e4a57eaa1a2412a9a0726bab750f828
 
 build:
   number: 0
@@ -16,6 +16,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - cmake
     - libmpack-lua
     - lua-lpeg
