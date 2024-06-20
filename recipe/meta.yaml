@@ -18,37 +18,44 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - cmake
-    - libmpack-lua
-    - lua-lpeg
-    - luajit-openresty
     - make
-    - nvim  # [build_platform != target_platform]
     - pkg-config
+    - gettext  # [build_platform != target_platform]
+    - libiconv  # [osx]
+    - libmpack-lua  # [build_platform != target_platform]
+    - libtree-sitter  # [build_platform != target_platform]
+    - libuv  # [build_platform != target_platform]
+    - libvterm  # [build_platform != target_platform]
+    - lua-lpeg  # [build_platform != target_platform]
+    - luajit-openresty  # [build_platform != target_platform]
+    - luv  # [build_platform != target_platform]
+    - msgpack-c  # [build_platform != target_platform]
+    - unibilium  # [build_platform != target_platform]
   host:
     - gettext
     - libiconv  # [osx]
     - libmpack-lua
     - libtermkey
+    - libtree-sitter
     - libuv
     - libvterm
     - lua-lpeg
     - luajit-openresty
     - luv
     - msgpack-c
-    - libtree-sitter
     - unibilium
   run:
     - gettext
     - libiconv  # [osx]
     - libmpack-lua
     - libtermkey
+    - libtree-sitter
     - libuv
     - libvterm
     - lua-lpeg
     - luajit-openresty
     - luv
     - msgpack-c
-    - libtree-sitter
     - unibilium
 
 test:
