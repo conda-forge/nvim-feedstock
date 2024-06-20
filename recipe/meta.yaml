@@ -16,7 +16,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
-    #- {{ stdlib("c") }}
+    - {{ stdlib("c") }}
     - cmake
     - libmpack-lua
     - lua-lpeg
