@@ -1,5 +1,5 @@
 {% set name = "nvim" %}
-{% set version = "0.10.0" %}
+{% set version = "0.10.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/neovim/neovim/archive/v{{ version }}.tar.gz
-  sha256: 372ea2584b0ea2a5a765844d95206bda9e4a57eaa1a2412a9a0726bab750f828
+  sha256: edce96e79903adfcb3c41e9a8238511946325ea9568fde177a70a614501af689
 
 build:
   number: 0
