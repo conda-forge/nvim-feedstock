@@ -10,7 +10,7 @@ source:
   sha256: 546cb2da9fffbb7e913261344bbf4cf1622721f6c5a67aa77609e976e78b8e89
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
 
 requirements:
@@ -45,18 +45,7 @@ requirements:
     - msgpack-c
     - unibilium
   run:
-    - gettext
-    - libiconv  # [osx]
-    - libmpack-lua
-    - libtermkey
-    - libtree-sitter
-    - libuv
-    - libvterm
-    - lua-lpeg
     - luajit-openresty
-    - luv
-    - msgpack-c
-    - unibilium
 
 test:
   commands:
@@ -65,7 +54,6 @@ test:
 about:
   home: https://neovim.io/
   license: Apache-2.0
-  license_family: APACHE
   license_file: LICENSE.txt
   summary: Ambitious Vim-fork focused on extensibility and agility
   dev_url: https://github.com/neovim/neovim
