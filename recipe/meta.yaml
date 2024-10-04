@@ -45,6 +45,7 @@ requirements:
     - msgpack-c
     - unibilium
   run:
+    - lua-lpeg
     - luajit-openresty
 
 test:
