@@ -3,7 +3,7 @@ bot:
 build_platform:
   osx_arm64: osx_64
 provider:
-  linux_aarch64: default
+  linux_aarch64: azure
 conda_build:
   error_overlinking: true
 conda_forge_output_validation: true
