@@ -2,12 +2,6 @@
 
 set -o xtrace -o nounset -o pipefail -o errexit
 
-if [[ ${target_platform} == linux* ]]; then
-    # Remove ja/cs/sk code-page translations as alma9 linux build images do not seem to
-    # support this anymore.  See https://github.com/conda-forge/nvim-feedstock/pull/22.
-    ex '+g/^\s*\(ja\|cs\|sk\)\s*$/d' -cwq src/nvim/po/CMakeLists.txt
-fi
-
 if [[ ${CONDA_BUILD_CROSS_COMPILATION:-0} == 1 ]]; then
     BOOTSTRAP_CMAKE_ARGS=${CMAKE_ARGS//${PREFIX}/${BUILD_PREFIX}}
     BOOTSTRAP_CMAKE_ARGS=${BOOTSTRAP_CMAKE_ARGS//${CONDA_TOOLCHAIN_HOST}/${CONDA_TOOLCHAIN_BUILD}}
