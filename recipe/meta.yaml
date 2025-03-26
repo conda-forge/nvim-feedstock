@@ -24,6 +24,7 @@ requirements:
     - libiconv  # [osx]
     - libmpack-lua  # [build_platform != target_platform]
     - libtree-sitter  # [build_platform != target_platform]
+    - libutf8proc  # [build_platform != target_platform]
     - libuv  # [build_platform != target_platform]
     - libvterm  # [build_platform != target_platform]
     - lua-lpeg  # [build_platform != target_platform]
@@ -37,6 +38,7 @@ requirements:
     - libmpack-lua
     - libtermkey
     - libtree-sitter
+    - libutf8proc
     - libuv
     - libvterm
     - lua-lpeg
