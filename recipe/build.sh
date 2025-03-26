@@ -27,6 +27,7 @@ if [[ ${CONDA_BUILD_CROSS_COMPILATION:-0} == 1 ]]; then
         -DMSGPACK_LIBRARY="${BUILD_PREFIX}/lib/libmsgpack-c${SHLIB_EXT}" \
         -DTREESITTER_LIBRARY="${BUILD_PREFIX}/lib/libtree-sitter${SHLIB_EXT}" \
         -DUNIBILIUM_LIBRARY="${BUILD_PREFIX}/lib/libunibilium${SHLIB_EXT}" \
+        -DUTF8PROC_LIBRARY="${BUILD_PREFIX}/lib/libutf8proc${SHLIB_EXT}" \
         ${BOOTSTRAP_CMAKE_ARGS}
     cmake --build build_host
     cmake --install build_host
