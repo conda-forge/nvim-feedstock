@@ -41,6 +41,7 @@ if [[ ${CONDA_BUILD_CROSS_COMPILATION:-0} == 1 ]]; then
 fi
 
 cmake -S . -B build \
+    -DENABLE_TRANSLATIONS=ON \
     -DCMAKE_BUILD_TYPE=Release \
     -DUSE_BUNDLED=OFF \
     -DLIBUV_LIBRARY="${PREFIX}/lib/libuv${SHLIB_EXT}" \
