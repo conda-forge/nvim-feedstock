@@ -1,1 +1,2 @@
 glibc-gconv-extra
+glibc-all-langpacks
