@@ -54,7 +54,7 @@ ulimit -n 1024
 # "recipe/yum_requirements.txt" file. After updating that file,
 # run "conda smithy rerender" and this line will be updated
 # automatically.
-/usr/bin/sudo -n yum install -y glibc-gconv-extra
+/usr/bin/sudo -n yum install -y glibc-gconv-extra glibc-all-langpacks
 )
 
 # make the build number clobber
