@@ -13,8 +13,8 @@ cmake --build build --config Release || goto :error
 @REM cmake --install build fails with permission denied error
 @REM we need to manually copy the files over
 copy .\build\bin\nvim.exe %LIBRARY_PREFIX%\bin || goto :error
-copy .\build\windows_runtime_deps\cat.exe %LIBRARY_PREFIX%\bin || goto :error
-copy .\build\windows_runtime_deps\tee.exe %LIBRARY_PREFIX%\bin || goto :error
+REM copy .\build\windows_runtime_deps\cat.exe %LIBRARY_PREFIX%\bin || goto :error
+REM copy .\build\windows_runtime_deps\tee.exe %LIBRARY_PREFIX%\bin || goto :error
 copy .\build\windows_runtime_deps\win32yank.exe %LIBRARY_PREFIX%\bin || goto :error
 copy .\build\windows_runtime_deps\xxd.exe %LIBRARY_PREFIX%\bin || goto :error
 
