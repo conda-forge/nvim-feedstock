@@ -16,8 +16,6 @@ channel_targets:
 - conda-forge main
 libiconv:
 - '1'
-libutf8proc:
-- '2.10'
 macos_machine:
 - arm64-apple-darwin20.0.0
 msgpack_c:
