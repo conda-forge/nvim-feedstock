@@ -26,6 +26,7 @@ requirements:
       then:
         - gettext
         - libtree-sitter
+        - libutf8proc
         - libuv
         - libvterm
         - lua-lpeg
@@ -37,6 +38,7 @@ requirements:
     - gettext
     - libtermkey
     - libtree-sitter
+    - libutf8proc
     - libuv
     - libvterm
     - lua-lpeg
