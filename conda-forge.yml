@@ -4,6 +4,7 @@ build_platform:
   osx_arm64: osx_64
 provider:
   linux_aarch64: azure
+  linux_ppc64le: azure
 conda_build:
   error_overlinking: true
 conda_build_tool: rattler-build
