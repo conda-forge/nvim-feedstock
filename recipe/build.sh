@@ -16,6 +16,7 @@ if [[ ${CONDA_BUILD_CROSS_COMPILATION:-0} == 1 ]]; then
 
     cmake -S . -B build_host \
         -DCMAKE_BUILD_TYPE=Release \
+        -DENABLE_TRANSLATIONS=ON \
         -DUSE_BUNDLED=OFF \
         -DICONV_LIBRARY="${BUILD_PREFIX}/lib/libiconv${SHLIB_EXT}" \
         -DLIBINTL_LIBRARY="${BUILD_PREFIX}/lib/libintl${SHLIB_EXT}" \
