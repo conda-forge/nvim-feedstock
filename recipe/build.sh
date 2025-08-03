@@ -44,6 +44,7 @@ fi
 
 cmake -S . -B build \
     -DCMAKE_BUILD_TYPE=Release \
+    -DENABLE_TRANSLATIONS=ON \
     -DUSE_BUNDLED=OFF \
     -DLIBUV_LIBRARY="${PREFIX}/lib/libuv${SHLIB_EXT}" \
     -DLPEG_LIBRARY="${PREFIX}/lib/liblpeg${SHLIB_EXT}" \
