@@ -1,23 +1,38 @@
 @echo on
-set "CMAKE_GENERATOR=Ninja"
 
-cmake -S cmake.deps -B .deps -G Ninja -D CMAKE_BUILD_TYPE=Release -DUSE_BUNDLED=OFF -DUSE_BUNDLED_UV=ON || goto :error
-cmake --build .deps -j %CPU_COUNT% || goto :error
-cmake -S . -B build ^
-    -G %CMAKE_GENERATOR% ^
-    -DCMAKE_BUILD_TYPE=Release ^
-    -DCMAKE_INSTALL_PREFIX="%LIBRARY_PREFIX%" ^
-    %CMAKE_ARGS% || goto :error
-cmake --build build --config Release -j %CPU_COUNT% || goto :error
+REM Set flags to handle UTF-8 properly
+setlocal enabledelayedexpansion
 
-@REM cmake --install build fails with permission denied error
-@REM we need to manually copy the files over
-copy .\build\bin\nvim.exe %LIBRARY_PREFIX%\bin || goto :error
-REM copy .\build\windows_runtime_deps\cat.exe %LIBRARY_PREFIX%\bin || goto :error
-REM copy .\build\windows_runtime_deps\tee.exe %LIBRARY_PREFIX%\bin || goto :error
-copy .\build\windows_runtime_deps\win32yank.exe %LIBRARY_PREFIX%\bin || goto :error
-copy .\build\windows_runtime_deps\xxd.exe %LIBRARY_PREFIX%\bin || goto :error
-xcopy /E /I /Y .\build\runtime\* %LIBRARY_PREFIX%\share\nvim\runtime\ || goto :error
+set LANG=en_US.UTF-8
+set LC_ALL=en_US.UTF-8
+set LC_CTYPE=en_US.UTF-8
+set VSLANG=1033
+set PYTHONUTF8=1
+chcp 65001 > nul 2>&1
+set CL=/utf-8
+set CFLAGS=-D_CRT_SECURE_NO_WARNINGS /utf-8
+set CXXFLAGS=-D_CRT_SECURE_NO_WARNINGS /utf-8
+
+cmake -S cmake.deps -B .deps -G Ninja ^
+    -DUSE_BUNDLED_UV=ON ^
+    -DUSE_BUNDLED=OFF ^
+    -DCMAKE_C_FLAGS="/utf-8 /D_CRT_SECURE_NO_WARNINGS" ^
+    -DCMAKE_CXX_FLAGS="/utf-8 /D_CRT_SECURE_NO_WARNINGS" ^
+    %CMAKE_ARGS% ^
+    || goto :error
+
+cmake --build .deps --parallel %CPU_COUNT% || goto :error
+
+cmake -S . -B build -G Ninja ^
+    -DENABLE_TRANSLATIONS=ON ^
+    -DUSE_BUNDLED=OFF ^
+    -DCMAKE_C_FLAGS="/utf-8 /D_CRT_SECURE_NO_WARNINGS" ^
+    -DCMAKE_CXX_FLAGS="/utf-8 /D_CRT_SECURE_NO_WARNINGS" ^
+    %CMAKE_ARGS% ^
+    || goto :error
+
+cmake --build build --parallel %CPU_COUNT% || goto :error
+cmake --install build || goto :error
 
 goto :EOF
 
