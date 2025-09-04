@@ -15,7 +15,7 @@ cmake -S . -B build -G Ninja ^
     || goto :error
 
 cmake --build build --parallel %CPU_COUNT% || goto :error
-cmake --install build || goto :error
+cmake --install build --parallel %CPU_COUNT% || goto :error
 
 goto :EOF
 

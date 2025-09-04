@@ -30,8 +30,8 @@ if [[ ${CONDA_BUILD_CROSS_COMPILATION:-0} == 1 ]]; then
         -DUNIBILIUM_LIBRARY="${BUILD_PREFIX}/lib/libunibilium${SHLIB_EXT}" \
         -DUTF8PROC_LIBRARY="${BUILD_PREFIX}/lib/libutf8proc${SHLIB_EXT}" \
         ${BOOTSTRAP_CMAKE_ARGS}
-    cmake --build build_host
-    cmake --install build_host
+    cmake --build build_host --parallel "${CPU_COUNT}"
+    cmake --install build_host --parallel "${CPU_COUNT}"
 
     LDFLAGS="${CROSS_LDFLAGS}"
     CC=${CROSS_CC}
@@ -49,5 +49,5 @@ cmake -S . -B build \
     -DLIBUV_LIBRARY="${PREFIX}/lib/libuv${SHLIB_EXT}" \
     -DLPEG_LIBRARY="${PREFIX}/lib/liblpeg${SHLIB_EXT}" \
     ${CMAKE_ARGS}
-cmake --build build
-cmake --install build
+cmake --build build --parallel "${CPU_COUNT}"
+cmake --install build --parallel "${CPU_COUNT}"
