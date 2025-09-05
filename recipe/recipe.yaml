@@ -10,11 +10,11 @@ source:
   sha256: 83cf9543bedab8bec8c11cd50ccd9a4bf1570420a914b9a28f83ad100ca6d524
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
-    - ${{ compiler('c') }}
+    - ${{ compiler("c") }}
     - ${{ stdlib("c") }}
     - cmake
     - make
