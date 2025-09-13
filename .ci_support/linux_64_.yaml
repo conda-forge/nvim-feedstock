@@ -17,7 +17,7 @@ docker_image:
 libiconv:
 - '1'
 libutf8proc:
-- '2.10'
+- '2.11'
 msgpack_c:
 - '6'
 target_platform:
