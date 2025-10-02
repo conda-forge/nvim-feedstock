@@ -18,7 +18,7 @@ if [[ ${CONDA_BUILD_CROSS_COMPILATION:-0} == 1 ]]; then
         -DCMAKE_BUILD_TYPE=Release \
         -DENABLE_TRANSLATIONS=ON \
         -DUSE_BUNDLED=OFF \
-        -DUSE_BUNDLED_TS_PARSERS=ON
+        -DUSE_BUNDLED_TS_PARSERS=ON \
         -DICONV_LIBRARY="${BUILD_PREFIX}/lib/libiconv${SHLIB_EXT}" \
         -DLIBINTL_LIBRARY="${BUILD_PREFIX}/lib/libintl${SHLIB_EXT}" \
         -DLIBUV_LIBRARY="${BUILD_PREFIX}/lib/libuv${SHLIB_EXT}" \
