@@ -18,6 +18,7 @@ if [[ ${CONDA_BUILD_CROSS_COMPILATION:-0} == 1 ]]; then
         -DCMAKE_BUILD_TYPE=Release \
         -DENABLE_TRANSLATIONS=ON \
         -DUSE_BUNDLED=OFF \
+        -DUSE_BUNDLED_TS_PARSERS=ON
         -DICONV_LIBRARY="${BUILD_PREFIX}/lib/libiconv${SHLIB_EXT}" \
         -DLIBINTL_LIBRARY="${BUILD_PREFIX}/lib/libintl${SHLIB_EXT}" \
         -DLIBUV_LIBRARY="${BUILD_PREFIX}/lib/libuv${SHLIB_EXT}" \
@@ -42,10 +43,16 @@ if [[ ${CONDA_BUILD_CROSS_COMPILATION:-0} == 1 ]]; then
     sed -i -e "s,\$<TARGET_FILE:nvim_bin>,${BUILD_PREFIX}/bin/nvim,g" src/nvim/po/CMakeLists.txt test/CMakeLists.txt runtime/CMakeLists.txt
 fi
 
+cmake -S cmake.deps -B .deps \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DUSE_BUNDLED=OFF \
+    -DUSE_BUNDLED_TS_PARSERS=ON
+
+cmake --build .deps
+
 cmake -S . -B build \
     -DCMAKE_BUILD_TYPE=Release \
     -DENABLE_TRANSLATIONS=ON \
-    -DUSE_BUNDLED=OFF \
     -DLIBUV_LIBRARY="${PREFIX}/lib/libuv${SHLIB_EXT}" \
     -DLPEG_LIBRARY="${PREFIX}/lib/liblpeg${SHLIB_EXT}" \
     ${CMAKE_ARGS}
