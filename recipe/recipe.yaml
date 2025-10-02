@@ -25,7 +25,7 @@ requirements:
     - if: build_platform != target_platform
       then:
         - gettext
-        - libtree-sitter
+        - libtree-sitter=0.25
         - libutf8proc
         - libuv
         - libvterm
@@ -37,7 +37,7 @@ requirements:
   host:
     - gettext
     - libtermkey
-    - libtree-sitter
+    - libtree-sitter=0.25
     - libutf8proc
     - libuv
     - libvterm
