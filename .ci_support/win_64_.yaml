@@ -7,7 +7,7 @@ channel_sources:
 channel_targets:
 - conda-forge main
 libutf8proc:
-- '2.10'
+- '2.11'
 msgpack_c:
 - '6'
 target_platform:

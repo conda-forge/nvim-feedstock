@@ -17,7 +17,7 @@ channel_targets:
 libiconv:
 - '1'
 libutf8proc:
-- '2.10'
+- '2.11'
 macos_machine:
 - x86_64-apple-darwin13.4.0
 msgpack_c:
