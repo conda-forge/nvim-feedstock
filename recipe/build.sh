@@ -51,3 +51,8 @@ cmake -S . -B build \
     ${CMAKE_ARGS}
 cmake --build build --parallel "${CPU_COUNT}"
 cmake --install build --parallel "${CPU_COUNT}"
+
+# Tell `pixi global` to not set CONDA_PREFIX during activation
+# https://pixi.sh/dev/global_tools/introduction/#opt-out-of-conda_prefix
+mkdir -p "${PREFIX}/etc/pixi/nvim"
+touch "${PREFIX}/etc/pixi/nvim/global-ignore-conda-prefix"
