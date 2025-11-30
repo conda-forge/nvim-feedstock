@@ -21,6 +21,8 @@ requirements:
     - pkg-config
     - ninja
     - gettext-tools
+    - if: osx
+      then: libintl-devel
     - if: build_platform != target_platform
       then:
         - libtree-sitter
