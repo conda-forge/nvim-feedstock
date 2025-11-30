@@ -63,3 +63,6 @@ cmake --install build --parallel "${CPU_COUNT}"
 # https://pixi.sh/dev/global_tools/introduction/#opt-out-of-conda_prefix
 mkdir -p "${PREFIX}/etc/pixi/nvim"
 touch "${PREFIX}/etc/pixi/nvim/global-ignore-conda-prefix"
+
+# Manually copy third-party licenses
+cp -r ${RECIPE_DIR}/license-files/* ${SRC_DIR}/license-files
