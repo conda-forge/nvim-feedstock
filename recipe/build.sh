@@ -15,8 +15,8 @@ if [[ ${CONDA_BUILD_CROSS_COMPILATION:-0} == 1 ]]; then
     CROSS_CC="${CC}"
     CROSS_LD="${LD}"
 
-    LDFLAGS="${LDFLAGS/${PREFIX}/${BUILD_PREFIX}}"
-    CFLAGS="${CFLAGS/-mcpu=power8 -mtune=power8/-mcpu=haswell -mtune=haswell}"
+    LDFLAGS="${LDFLAGS//${PREFIX}/${BUILD_PREFIX}}"
+    CFLAGS="${CFLAGS//-mcpu=power8 -mtune=power8/-mcpu=haswell -mtune=haswell}"
     CC="${CC//${CONDA_TOOLCHAIN_HOST}/${CONDA_TOOLCHAIN_BUILD}}"
     LD="${LD//${CONDA_TOOLCHAIN_HOST}/${CONDA_TOOLCHAIN_BUILD}}"
 
