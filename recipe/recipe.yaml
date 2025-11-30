@@ -27,25 +27,22 @@ requirements:
         - libtree-sitter
         - libutf8proc
         - libuv
-        - libvterm
         - lua-lpeg
         - luajit-openresty
         - luv
-        - msgpack-c
         - unibilium
   host:
-    - libtermkey
     - libtree-sitter
     - libutf8proc
     - libuv
-    - libvterm
     - lua-lpeg
     - luajit-openresty
     - luv
-    - msgpack-c
     - unibilium
     - if: unix
       then: libiconv
+    - if: osx or win
+      then: libintl-devel
   run:
     - luajit-openresty
 
