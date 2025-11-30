@@ -24,6 +24,7 @@ if not exist "%PREFIX%\\etc\\pixi\\nvim" mkdir "%PREFIX%\\etc\\pixi\\nvim"
 type nul > "%PREFIX%\\etc\\pixi\\nvim\\global-ignore-conda-prefix"
 
 :: Manually copy licenses that go-licenses could not download
+mkdir %SRC_DIR%\license-files
 xcopy /s %RECIPE_DIR%\license-files\* %SRC_DIR%\license-files || goto :error
 
 goto :eof

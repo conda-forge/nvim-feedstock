@@ -16,7 +16,7 @@ if [[ ${CONDA_BUILD_CROSS_COMPILATION:-0} == 1 ]]; then
     CROSS_LD="${LD}"
 
     LDFLAGS="${LDFLAGS/${PREFIX}/${BUILD_PREFIX}}"
-    CFLAGS="${CFLAGS/-mtune=power8/-mtune=haswell}"
+    CFLAGS="${CFLAGS/-mcpu=power8 -mtune=power8/-mcpu=haswell -mtune=haswell}"
     CC="${CC//${CONDA_TOOLCHAIN_HOST}/${CONDA_TOOLCHAIN_BUILD}}"
     LD="${LD//${CONDA_TOOLCHAIN_HOST}/${CONDA_TOOLCHAIN_BUILD}}"
 
@@ -67,4 +67,5 @@ mkdir -p "${PREFIX}/etc/pixi/nvim"
 touch "${PREFIX}/etc/pixi/nvim/global-ignore-conda-prefix"
 
 # Manually copy third-party licenses
+mkdir ${SRC_DIR}/license-files
 cp -r ${RECIPE_DIR}/license-files/* ${SRC_DIR}/license-files
