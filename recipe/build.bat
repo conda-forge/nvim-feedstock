@@ -1,4 +1,5 @@
 @echo on
+@setlocal EnableDelayedExpansion
 
 cmake -S cmake.deps -B .deps -G Ninja ^
     -DUSE_BUNDLED_UV=ON ^
@@ -22,7 +23,11 @@ cmake --install build --parallel %CPU_COUNT% || goto :error
 if not exist "%PREFIX%\\etc\\pixi\\nvim" mkdir "%PREFIX%\\etc\\pixi\\nvim"
 type nul > "%PREFIX%\\etc\\pixi\\nvim\\global-ignore-conda-prefix"
 
-goto :EOF
+:: Manually copy licenses that go-licenses could not download
+mkdir %SRC_DIR%\license-files
+xcopy /s %RECIPE_DIR%\license-files\* %SRC_DIR%\license-files || goto :error
+
+goto :eof
 
 :error
 echo Failed with error #%errorlevel%.

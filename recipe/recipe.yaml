@@ -10,7 +10,7 @@ source:
   sha256: c63450dfb42bb0115cd5e959f81c77989e1c8fd020d5e3f1e6d897154ce8b771
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -20,34 +20,30 @@ requirements:
     - make
     - pkg-config
     - ninja
-    - if: unix
-      then: libiconv
+    - gettext-tools
     - if: build_platform != target_platform
       then:
-        - gettext
-        - libtree-sitter =0.25
+        - libtree-sitter
         - libutf8proc
         - libuv
-        - libvterm
         - lua-lpeg
         - luajit-openresty
         - luv
-        - msgpack-c
         - unibilium
+        - if: osx
+          then: libintl-devel
   host:
-    - gettext
-    - libtermkey
-    - libtree-sitter =0.25
+    - libtree-sitter
     - libutf8proc
     - libuv
-    - libvterm
     - lua-lpeg
     - luajit-openresty
     - luv
-    - msgpack-c
     - unibilium
     - if: unix
       then: libiconv
+    - if: osx or win
+      then: libintl-devel
   run:
     - luajit-openresty
 
@@ -57,7 +53,9 @@ tests:
 
 about:
   license: Apache-2.0
-  license_file: LICENSE.txt
+  license_file:
+    - LICENSE.txt
+    - license-files/
   summary: Ambitious Vim-fork focused on extensibility and agility
   homepage: https://neovim.io/
   repository: https://github.com/neovim/neovim

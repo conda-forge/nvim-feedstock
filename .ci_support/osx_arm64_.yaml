@@ -16,11 +16,11 @@ channel_targets:
 - conda-forge main
 libiconv:
 - '1'
+libtree_sitter:
+- '0.25'
 libutf8proc:
 - '2.11'
 macos_machine:
 - arm64-apple-darwin20.0.0
-msgpack_c:
-- '6'
 target_platform:
 - osx-arm64

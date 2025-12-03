@@ -14,9 +14,9 @@ docker_image:
 - quay.io/condaforge/linux-anvil-ppc64le:alma9
 libiconv:
 - '1'
+libtree_sitter:
+- '0.25'
 libutf8proc:
 - '2.11'
-msgpack_c:
-- '6'
 target_platform:
 - linux-ppc64le

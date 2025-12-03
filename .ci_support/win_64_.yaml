@@ -6,9 +6,9 @@ channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
+libtree_sitter:
+- '0.25'
 libutf8proc:
 - '2.11'
-msgpack_c:
-- '6'
 target_platform:
 - win-64
