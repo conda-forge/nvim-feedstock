@@ -9,7 +9,7 @@ version = "3.54.1"  # conda-smithy version used to generate this file
 description = "Pixi configuration for conda-forge/nvim-feedstock"
 authors = ["@conda-forge/nvim"]
 channels = ["conda-forge"]
-platforms = ["linux-64", "linux-aarch64", "linux-ppc64le", "osx-64", "win-64"]
+platforms = ["linux-64", "osx-64", "win-64"]
 requires-pixi = ">=0.59.0"
 
 [dependencies]
@@ -35,12 +35,6 @@ description = "Build nvim-feedstock with variant linux_aarch64_ directly (withou
 [tasks."inspect-linux_aarch64_"]
 cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_aarch64_.yaml"
 description = "List contents of nvim-feedstock packages built for variant linux_aarch64_"
-[tasks."build-linux_ppc64le_"]
-cmd = "rattler-build build --recipe recipe -m .ci_support/linux_ppc64le_.yaml"
-description = "Build nvim-feedstock with variant linux_ppc64le_ directly (without setup scripts)"
-[tasks."inspect-linux_ppc64le_"]
-cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_ppc64le_.yaml"
-description = "List contents of nvim-feedstock packages built for variant linux_ppc64le_"
 [tasks."build-osx_64_"]
 cmd = "rattler-build build --recipe recipe -m .ci_support/osx_64_.yaml"
 description = "Build nvim-feedstock with variant osx_64_ directly (without setup scripts)"
