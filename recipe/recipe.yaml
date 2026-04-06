@@ -44,6 +44,8 @@ requirements:
       then: libiconv
     - if: osx or win
       then: libintl-devel
+    - if osx:
+      then: gettext
   run:
     - luajit-openresty
 
