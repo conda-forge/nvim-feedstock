@@ -1,5 +1,5 @@
 context:
-  version: "0.12.1"
+  version: "0.12.2"
 
 package:
   name: nvim
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/neovim/neovim/archive/v${{ version }}.tar.gz
-  sha256: 41898a5073631bc8fd9ac43476b811c05fb3b88ffb043d4fbb9e75e478457336
+  sha256: ef9f58da7d687ed4d1dad9715542bf0dabdeedbfe8089e2ce17fff21b920a268
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:
