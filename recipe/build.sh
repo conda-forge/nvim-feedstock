@@ -54,7 +54,7 @@ cmake --build .deps
 
 extra_args=()
 if [[ "${target_platform}" == osx-* ]]; then
-  extra_args+=(-DLIBINTL_LIBRARY="${BUILD_PREFIX}/lib/libintl${SHLIB_EXT}")
+    extra_args+=(-DLIBINTL_LIBRARY="${PREFIX}/lib/libintl${SHLIB_EXT}")
 fi
 
 cmake -S . -B build \
