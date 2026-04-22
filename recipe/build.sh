@@ -2,11 +2,11 @@
 
 set -o xtrace -o nounset -o pipefail -o errexit
 
-if [[ ${CONDA_BUILD_CROSS_COMPILATION:-0} == 1 ]]; then
+if [[ "${build_platform}" != "${TARGET_PLATFORM}" ]]; then
     BOOTSTRAP_CMAKE_ARGS=${CMAKE_ARGS//${PREFIX}/${BUILD_PREFIX}}
     BOOTSTRAP_CMAKE_ARGS=${BOOTSTRAP_CMAKE_ARGS//${CONDA_TOOLCHAIN_HOST}/${CONDA_TOOLCHAIN_BUILD}}
     # libintl is only used on macOS
-    if [[ ${target_platform} =~ .*osx.* ]]; then
+    if [[ "${TARGET_PLATFORM}" == osx-* ]]; then
         BOOTSTRAP_CMAKE_ARGS="${BOOTSTRAP_CMAKE_ARGS} -DLIBINTL_LIBRARY=${BUILD_PREFIX}/lib/libintl${SHLIB_EXT}"
     fi
 
