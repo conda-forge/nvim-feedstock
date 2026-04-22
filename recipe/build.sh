@@ -52,11 +52,17 @@ cmake -S cmake.deps -B .deps \
 
 cmake --build .deps
 
+extra_args=()
+if [[ "${target_platform}" == osx-* ]]; then
+  extra_args+=(-DLIBINTL_LIBRARY="${BUILD_PREFIX}/lib/libintl${SHLIB_EXT}")
+fi
+
 cmake -S . -B build \
     -DCMAKE_BUILD_TYPE=Release \
     -DENABLE_TRANSLATIONS=ON \
     -DLIBUV_LIBRARY="${PREFIX}/lib/libuv${SHLIB_EXT}" \
     -DLPEG_LIBRARY="${PREFIX}/lib/liblpeg${SHLIB_EXT}" \
+    "${extra_args[@]}" \
     ${CMAKE_ARGS}
 cmake --build build --parallel "${CPU_COUNT}"
 cmake --install build --parallel "${CPU_COUNT}"
