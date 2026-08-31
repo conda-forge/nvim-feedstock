@@ -10,7 +10,7 @@ source:
   sha256: a810c95332317bd0017e1ca07e376a8472c79075cbed00fa3737d190a8a0a45a
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -29,7 +29,7 @@ requirements:
         - lua-lpeg
         - luajit-openresty
         - luv
-        - unibilium
+        - unibilium >=2.1.4
         - if: osx
           then: libintl-devel
   host:
@@ -39,7 +39,7 @@ requirements:
     - lua-lpeg
     - luajit-openresty
     - luv
-    - unibilium
+    - unibilium >=2.1.4
     - if: unix
       then: libiconv
     - if: osx or win
