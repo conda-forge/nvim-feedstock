@@ -29,7 +29,7 @@ requirements:
         - lua-lpeg
         - luajit-openresty
         - luv
-        - unibilium >=2.1.4
+        - unibilium
         - if: osx
           then: libintl-devel
   host:
@@ -39,7 +39,7 @@ requirements:
     - lua-lpeg
     - luajit-openresty
     - luv
-    - unibilium >=2.1.4
+    - unibilium
     - if: unix
       then: libiconv
     - if: osx or win
