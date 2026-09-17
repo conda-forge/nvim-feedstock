@@ -20,3 +20,5 @@ libutf8proc:
 - '2.11'
 target_platform:
 - linux-aarch64
+unibilium:
+- 2.1.4
