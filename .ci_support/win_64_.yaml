@@ -9,7 +9,7 @@ channel_targets:
 libtree_sitter:
 - '0.25'
 libutf8proc:
-- '2.11'
+- '2.12'
 target_platform:
 - win-64
 unibilium:
