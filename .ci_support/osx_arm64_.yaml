@@ -14,6 +14,8 @@ channel_targets:
 - conda-forge main
 libiconv:
 - '1'
+libintl_devel:
+- '1'
 libtree_sitter:
 - '0.25'
 libutf8proc:

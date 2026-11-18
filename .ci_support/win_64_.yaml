@@ -1,11 +1,15 @@
 c_compiler:
-- vs2022
+- vs
+c_compiler_version:
+- '2022'
 c_stdlib:
 - vs
 channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
+libintl_devel:
+- '0.22'
 libtree_sitter:
 - '0.25'
 libutf8proc:
